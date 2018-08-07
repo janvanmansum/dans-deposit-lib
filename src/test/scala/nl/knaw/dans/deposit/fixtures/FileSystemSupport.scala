@@ -13,25 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.knaw.dans.bag.fixtures
+package nl.knaw.dans.deposit.fixtures
 
-import org.joda.time.{ DateTime, DateTimeUtils }
+import better.files.File
+import better.files.File.currentWorkingDirectory
 import org.scalatest.BeforeAndAfterEach
 
-trait FixDateTimeNow extends BeforeAndAfterEach {
+trait FileSystemSupport extends BeforeAndAfterEach {
   this: TestSupportFixture =>
-
-  protected val fixedDateTimeNow: DateTime = new DateTime(2017, 7, 30, 0, 0)
 
   override protected def beforeEach(): Unit = {
     super.beforeEach()
 
-    DateTimeUtils.setCurrentMillisFixed(fixedDateTimeNow.getMillis)
+    if (testDir.exists) testDir.delete()
+    testDir.createDirectories()
   }
 
-  override protected def afterEach(): Unit = {
-    DateTimeUtils.setCurrentMillisOffset(0L)
-
-    super.afterEach()
-  }
+  lazy val testDir: File = currentWorkingDirectory / "target" / "test" / getClass.getSimpleName
 }
