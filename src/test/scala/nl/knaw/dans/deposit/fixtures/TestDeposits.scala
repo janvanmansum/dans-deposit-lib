@@ -16,7 +16,7 @@
 package nl.knaw.dans.deposit.fixtures
 
 import better.files.File
-import nl.knaw.dans.bag.{ Deposit, DepositProperties }
+import nl.knaw.dans.deposit.{ Deposit, DepositProperties }
 
 import scala.language.implicitConversions
 import scala.util.{ Failure, Success, Try }
