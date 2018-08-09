@@ -10,7 +10,7 @@ deploy:
   local-dir: target/site/scaladocs
   keep-history: true
   verbose: true
-  github-token: $GH_TOKEN
+  github-token: "$GH_TOKEN"
   on:
     branch: master
 
