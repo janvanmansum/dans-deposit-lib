@@ -1,6 +1,8 @@
 dans-deposit-lib
 ================
 
+[![Build Status](https://travis-ci.org/DANS-KNAW/dans-deposit-lib.svg?branch=master)](https://travis-ci.org/DANS-KNAW/dans-deposit-lib)
+
 Library for creating, reading and mutating DANS deposits
 
 

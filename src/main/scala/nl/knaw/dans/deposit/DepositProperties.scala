@@ -196,10 +196,10 @@ object DepositProperties {
 
 case class Creation(timestamp: DateTime = DateTime.now) {
   def this(timestamp: String) = {
-    this(DateTime.parse(timestamp, ISODateTimeFormat.dateTime()))
+    this(DateTime.parse(timestamp, ISODateTimeFormat.dateTime().withOffsetParsed()))
   }
 
-  def timestampString: String = timestamp.toString(ISODateTimeFormat.dateTime())
+  def timestampString: String = timestamp.toString(ISODateTimeFormat.dateTime().withOffsetParsed())
 }
 
 object StateLabel extends Enumeration {
